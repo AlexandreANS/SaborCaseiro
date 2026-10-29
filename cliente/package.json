@@ -1,0 +1,15 @@
+{
+  "name": "sabor-caseiro-cliente",
+  "version": "2.0.0",
+  "description": "Front-end do cliente do Sabor Caseiro (JavaScript puro, usável na web e em app mobile).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

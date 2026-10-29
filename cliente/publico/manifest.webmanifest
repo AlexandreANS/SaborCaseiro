@@ -1,0 +1,15 @@
+{
+  "name": "Sabor Caseiro",
+  "short_name": "Sabor Caseiro",
+  "description": "Monte sua marmita e receba quentinha ou retire no balcão.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FAF3E7",
+  "theme_color": "#A6342E",
+  "icons": [
+    { "src": "img/icone.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "sabor-caseiro",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sabor Caseiro: API (api/), cliente (cliente/) e gerente (admin/).",
+  "scripts": {
+    "sincronizar": "node -e \"const f=require('fs');for(const d of ['cliente','admin'])f.copyFileSync('comum/dom.js',d+'/publico/js/dom.js')\"",
+    "api": "npm --prefix api start",
+    "cliente": "npm --prefix cliente start",
+    "admin": "npm --prefix admin start",
+    "banco": "npm --prefix api run banco",
+    "banco:reset": "npm --prefix api run banco:reset",
+    "test": "node --test api/testes/api.test.js"
+  }
+}

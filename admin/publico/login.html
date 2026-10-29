@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel do Gerente — Sabor Caseiro</title>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+<div class="login-fundo">
+  <div class="login-cartao">
+    <div class="marca">
+      <span class="marca-icone">S</span>
+      <span>Painel do Gerente</span>
+    </div>
+    <h2>Acesso restrito</h2>
+    <p class="subtitulo">Entre com a conta do gerente</p>
+
+    <form data-form="login">
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="gerente@saborcaseiro.com.br" autocomplete="username" required>
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Sua senha" autocomplete="current-password" required>
+      </div>
+      <p id="erro-login" class="msg-erro" role="alert" hidden></p>
+      <button type="submit" class="botao botao-principal botao-cheio">Entrar no Painel</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dom.js"></script>
+<script src="js/principal.js"></script>
+<script src="js/paginas/login.js"></script>
+</body>
+</html>

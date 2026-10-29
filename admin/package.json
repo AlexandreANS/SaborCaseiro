@@ -1,0 +1,13 @@
+{
+  "name": "sabor-caseiro-admin",
+  "version": "2.0.0",
+  "description": "Painel do Gerente do Sabor Caseiro (front-end que consome a API REST)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
