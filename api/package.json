@@ -1,0 +1,27 @@
+{
+  "name": "sabor-caseiro-api",
+  "version": "2.0.0",
+  "description": "API REST do Sabor Caseiro (Express + PostgreSQL) para os módulos cliente e gerente.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "banco": "node banco/iniciar.js",
+    "banco:reset": "node banco/iniciar.js --reset",
+    "test": "node testes/rodar.js",
+    "test:vivo": "node --test testes/api.test.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0",
+    "nodemailer": "^10.3.1",
+    "pg": "^8.23.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

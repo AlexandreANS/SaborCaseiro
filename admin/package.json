@@ -1,0 +1,20 @@
+{
+  "name": "sabor-caseiro-admin",
+  "version": "2.0.0",
+  "description": "Painel do Gerente do Sabor Caseiro (front-end que consome a API REST)",
+  "main": "server.js",
+  "scripts": {
+    "prestart": "node -e \"try{require('../comum/sincronizar').sincronizar()}catch{}\"",
+    "predev": "node -e \"try{require('../comum/sincronizar').sincronizar()}catch{}\"",
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "express": "^4.19.2",
+    "helmet": "^8.3.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

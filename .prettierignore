@@ -1,0 +1,12 @@
+node_modules
+package-lock.json
+*.sql
+*.html
+*.css
+cliente/publico/js/dom.js
+admin/publico/js/dom.js
+cliente/estaticos.js
+admin/estaticos.js
+*.md
+*.json
+*.webmanifest

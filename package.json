@@ -1,0 +1,31 @@
+{
+  "name": "sabor-caseiro",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sabor Caseiro: API (api/), cliente (cliente/) e gerente (admin/).",
+  "scripts": {
+    "postinstall": "npm --prefix api install && npm --prefix cliente install && npm --prefix admin install",
+    "instalar": "npm install",
+    "dev": "node comum/dev.js",
+    "start": "node comum/dev.js --producao",
+    "sincronizar": "node comum/sincronizar.js",
+    "api": "npm --prefix api start",
+    "cliente": "npm --prefix cliente start",
+    "admin": "npm --prefix admin start",
+    "banco": "npm --prefix api run banco",
+    "banco:reset": "npm --prefix api run banco:reset",
+    "test": "npm --prefix api test",
+    "verificar": "eslint .",
+    "formatar": "prettier --write .",
+    "formatar:ver": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.10"
+  }
+}

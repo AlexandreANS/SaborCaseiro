@@ -1,0 +1,58 @@
+const Pedido = require("../modelos/pedido");
+
+const canais = new Map();
+const MAX_POR_CANAL = 8;
+
+function assinar(canal, req, res) {
+  res.set({
+    "Content-Type": "text/event-stream",
+    "Cache-Control": "no-cache, no-transform",
+    Connection: "keep-alive",
+    "X-Accel-Buffering": "no",
+  });
+  res.flushHeaders();
+  res.write("retry: 3000\n\n");
+  if (!canais.has(canal)) canais.set(canal, new Set());
+  const grupo = canais.get(canal);
+  if (grupo.size >= MAX_POR_CANAL) {
+    const antigo = grupo.values().next().value;
+    grupo.delete(antigo);
+    antigo.end();
+  }
+  grupo.add(res);
+  req.on("close", () => {
+    const grupo = canais.get(canal);
+    if (!grupo) return;
+    grupo.delete(res);
+    if (!grupo.size) canais.delete(canal);
+  });
+}
+
+function emitir(canal, evento) {
+  const grupo = canais.get(canal);
+  if (!grupo) return;
+  const texto = `data: ${JSON.stringify(evento)}\n\n`;
+  for (const res of grupo) res.write(texto);
+}
+
+function avisarGerente(tipo, id) {
+  emitir("gerente", { tipo, id });
+}
+
+async function avisarCliente(pedidoId, tipo) {
+  try {
+    const clienteId = await Pedido.clienteDe(pedidoId);
+    if (clienteId) emitir("cliente:" + clienteId, { tipo, id: pedidoId });
+  } catch {}
+}
+
+setInterval(() => {
+  for (const grupo of canais.values()) for (const res of grupo) res.write(": ping\n\n");
+}, 25000).unref();
+
+function encerrar() {
+  for (const grupo of canais.values()) for (const res of grupo) res.end();
+  canais.clear();
+}
+
+module.exports = { assinar, emitir, avisarGerente, avisarCliente, encerrar };
